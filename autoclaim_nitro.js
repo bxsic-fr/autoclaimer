@@ -1,7 +1,8 @@
 const discord = require("discord.js")
 const client = new discord.Client()
 const fetch = require("node-fetch")
-client.login(process.argv[2])
+const usr_token = "YOUR-DISCORD-TOKEN"
+client.login(usr_token);
 client.on("ready", () => {
     console.log("ready to accept nitro as " + client.user.tag)
 })
@@ -28,7 +29,7 @@ client.on("message", message => {
                 "Accept": "*/*",
                 "Accept-Encoding": "gzip, deflate, br",
                 "Accept-Language": "en-US",
-                "Authorization": client.token,
+                "Authorization": usr_token,
                 "Connection": "keep-alive",
                 "Content-Length": JSON.stringify({channel_id: message.channel.id}).length,
                 "Content-Type": "application/json",
